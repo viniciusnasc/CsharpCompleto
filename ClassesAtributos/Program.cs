@@ -17,12 +17,12 @@ namespace ClassesAtributos
             double b3 = double.Parse(Console.ReadLine());
 
             double p1 = (a1 + a2 + a3) / 2;
-            double area1 = Math.Round(Math.Sqrt(p1*(p1-a2)*(p1-a2)*(p1-a3)));
+            double area1 = Math.Sqrt(p1 * (p1 - a1) * (p1 - a2) * (p1 - a3));
 
             Console.WriteLine($"Area do primeiro triangulo = {area1}");
 
             double p2 = (b1 + b2 + b3) / 2;
-            double area2 = Math.Round(Math.Sqrt(p2 * (p2 - a2) * (p2 - a2) * (p2 - a3)));
+            double area2 = Math.Sqrt(p2 * (p2 - b1) * (p2 - b2) * (p2 - b3));
 
             Console.WriteLine($"Area do primeiro triangulo = {area2}");
 

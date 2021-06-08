@@ -14,7 +14,8 @@ namespace RecapLogica
                                "p2 para exercicio proposto 2\n" +
                                "p3 para exercicio proposto 3\n" +
                                "p4 para exercicio proposto 4\n" +
-                               "p5 para exercicio proposto 5\n");
+                               "p5 para exercicio proposto 5\n" +
+                               "p6 para exercicio proposto 6\n");
             string exercicio = Console.ReadLine();
 
             #region Exercicio de fixação de concatenação
@@ -149,13 +150,67 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 5
-            if (exercicio == "p5" || exercicio =="P5")
+            if (exercicio == "p5" || exercicio == "P5")
             {
                 Console.WriteLine("Fazer um programa paraler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Calcule e mostre o valor a ser pago");
-                Console.WriteLine("\nDigite o codigo da peça que deseja comprar: ");
-                    Console.WriteLine("\nDigite a quantidade: ");
-                
 
+                Pecas p1 = new Pecas(1, 15.10);
+                Pecas p2 = new Pecas(2, 15.10);
+                Pecas p12 = new Pecas(12, 5.30);
+                Pecas p13 = new Pecas(13, 15.30);
+                Pecas p16 = new Pecas(16, 5.10);
+                Pecas p161 = new Pecas(161, 5.20);
+                double[,] itens = new double[,]
+                { { p1._Id, p1._preco }, { p2._Id, p2._preco }, 
+                  { p12._Id, p12._preco }, { p13._Id, p13._preco }, 
+                  { p16._Id, p16._preco }, { p161._Id, p161._preco } };
+                double valorTotal = 0;
+
+                Inicio:
+                
+                int item = Pedido.Item();
+                int quantidade = Pedido.Quantidade();
+                valorTotal = Pedido.Calculo(itens, item, quantidade, valorTotal);
+
+                char outroItem = Pedido.OutroItem();
+
+                if (outroItem == 's' || outroItem == 'S')
+                {
+                    goto Inicio;
+                }
+                else
+                {
+                    Console.WriteLine("VALOR A PAGAR: R$ " + valorTotal.ToString("F2",CultureInfo.InvariantCulture));
+                }
+            }
+            #endregion
+
+            #region Exercicio proposto 6
+            if (exercicio == "p6" || exercicio == "P6")
+            {
+                Console.Clear();
+                Console.WriteLine("Fazer um programa que leia três valores com ponto flutuante de dupla precisão: A, B e C. ");
+                Console.WriteLine("Em seguida, calcule e mostre: ");
+                Console.WriteLine("a) a área do triângulo retângulo que tem A por base e C por altura. ");
+                Console.WriteLine("b) a área do círculo de raio C. (pi = 3.14159) ");
+                Console.WriteLine("c) a área do trapézio que tem A e B por bases e C por altura.");
+                Console.WriteLine("d) a área do quadrado que tem lado B.");
+                Console.WriteLine("e) a área do retângulo que tem lados A e B");
+
+                Console.Write("\nDigite o valor de A: ");
+                double A = double.Parse(Console.ReadLine());
+
+                Console.Write("Digite o valor de B: ");
+                double B = double.Parse(Console.ReadLine());
+
+                Console.Write("Digite o valor de C: ");
+                double C = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nTRIANGULO RETANGULO: " + Ex6.TrianguloRetangulo(A,C).ToString("F3",CultureInfo.InvariantCulture));
+                Console.WriteLine("CIRCULO: " + Ex6.Circulo(C).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("TRAPEZIO: " + Ex6.Trapezio(A,B,C).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("QUADRADO: " + Ex6.Quadrado(B).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("RETANGULO: " + Ex6.Retangulo(A, B).ToString("F3", CultureInfo.InvariantCulture));
             }
             #endregion
         }

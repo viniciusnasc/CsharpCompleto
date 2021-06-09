@@ -8,6 +8,22 @@ namespace RecapLogica
 {
     public class Ex6
     {
+        public static double[] Incognitas(double[] incognitas)
+        {
+            Console.Write("\nDigite o valor de A: ");
+            double A = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor de B: ");
+            double B = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor de C: ");
+            double C = double.Parse(Console.ReadLine());
+
+            double[] letras = new double[] { A, B, C };
+
+            return letras;
+        }
+
         public static double TrianguloRetangulo(double A, double C)
         {
             double area = A * C / 2;

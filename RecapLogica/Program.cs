@@ -15,11 +15,19 @@ namespace RecapLogica
                                "p3 para exercicio proposto 3\n" +
                                "p4 para exercicio proposto 4\n" +
                                "p5 para exercicio proposto 5\n" +
-                               "p6 para exercicio proposto 6\n");
-            string exercicio = Console.ReadLine();
+                               "p6 para exercicio proposto 6\n" +
+                               "c1 para exercicio condicional 1\n" +
+                               "c2 para exercicio condicional 2\n" +
+                               "c3 para exercicio condicional 3\n" +
+                               "c4 para exercicio condicional 4\n" +
+                               "c5 para exercicio condicional 5\n" +
+                               "c6 para exercicio condicional 6\n" +
+                               "c7 para exercicio condicional 7\n" +
+                               "c8 para exercicio condicional 8\n");
+            string exercicio = Console.ReadLine().ToUpper();
 
             #region Exercicio de fixação de concatenação
-            if (exercicio == "f1")
+            if (exercicio == "F1")
             {
                 string produto1 = "Computador";
                 string produto2 = "Mesa de escritório";
@@ -45,7 +53,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio de fixação de entrada de dados
-            if (exercicio == "f2" || exercicio == "F2")
+            else if (exercicio == "F2")
             {
                 //Proposto - entrar com os seguintes dados:
                 //Alex Green
@@ -79,7 +87,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 1
-            if (exercicio == "p1" || exercicio == "P1")
+            else if (exercicio == "P1")
             {
                 Console.WriteLine("Calculadora de soma simples: Digite dois numeros a serem somados:\n" +
                                   "Primeiro numero: ");
@@ -93,7 +101,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 2
-            if ( exercicio == "p2" || exercicio == "P2")
+            else if (exercicio == "P2")
             {
                 Console.WriteLine("Calculo de área de circulo!\n" +
                                   "Informe o valor do raio: ");
@@ -105,7 +113,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 3
-            if(exercicio == "p3" || exercicio == "P3")
+            else if(exercicio == "P3")
             {
                 Console.WriteLine("Fazer um programa para lerquatro valores inteiros A, B, C e D. " +
                                   "A seguir, calcule e mostre a diferença do produto de A e B pelo produto " +
@@ -128,7 +136,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 4
-            if (exercicio == "p4" || exercicio == "P4")
+            else if (exercicio == "P4")
             {
                 Console.WriteLine("\nFazer um programa que leia o número de um funcionário, " +
                                   "seu número de horas trabalhadas, o valor que recebe por hora " +
@@ -150,7 +158,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 5
-            if (exercicio == "p5" || exercicio == "P5")
+            else if (exercicio == "P5")
             {
                 Console.WriteLine("Fazer um programa paraler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Calcule e mostre o valor a ser pago");
 
@@ -176,6 +184,7 @@ namespace RecapLogica
 
                 if (outroItem == 's' || outroItem == 'S')
                 {
+                    //tentar fazer while
                     goto Inicio;
                 }
                 else
@@ -186,7 +195,7 @@ namespace RecapLogica
             #endregion
 
             #region Exercicio proposto 6
-            if (exercicio == "p6" || exercicio == "P6")
+            else if (exercicio == "P6")
             {
                 Console.Clear();
                 Console.WriteLine("Fazer um programa que leia três valores com ponto flutuante de dupla precisão: A, B e C. ");
@@ -197,22 +206,156 @@ namespace RecapLogica
                 Console.WriteLine("d) a área do quadrado que tem lado B.");
                 Console.WriteLine("e) a área do retângulo que tem lados A e B");
 
-                Console.Write("\nDigite o valor de A: ");
-                double A = double.Parse(Console.ReadLine());
+                //tentar criar um metodo com array para as tres incognitas
+                double[] letras = new double[3];
+                letras = Ex6.Incognitas(letras);
 
-                Console.Write("Digite o valor de B: ");
-                double B = double.Parse(Console.ReadLine());
-
-                Console.Write("Digite o valor de C: ");
-                double C = double.Parse(Console.ReadLine());
-
-                Console.WriteLine("\nTRIANGULO RETANGULO: " + Ex6.TrianguloRetangulo(A,C).ToString("F3",CultureInfo.InvariantCulture));
-                Console.WriteLine("CIRCULO: " + Ex6.Circulo(C).ToString("F3", CultureInfo.InvariantCulture));
-                Console.WriteLine("TRAPEZIO: " + Ex6.Trapezio(A,B,C).ToString("F3", CultureInfo.InvariantCulture));
-                Console.WriteLine("QUADRADO: " + Ex6.Quadrado(B).ToString("F3", CultureInfo.InvariantCulture));
-                Console.WriteLine("RETANGULO: " + Ex6.Retangulo(A, B).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("\nTRIANGULO RETANGULO: " + Ex6.TrianguloRetangulo(letras[0], letras[2]).ToString("F3",CultureInfo.InvariantCulture));
+                Console.WriteLine("CIRCULO: " + Ex6.Circulo(letras[2]).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("TRAPEZIO: " + Ex6.Trapezio(letras[0], letras[1], letras[2]).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("QUADRADO: " + Ex6.Quadrado(letras[1]).ToString("F3", CultureInfo.InvariantCulture));
+                Console.WriteLine("RETANGULO: " + Ex6.Retangulo(letras[0], letras[1]).ToString("F3", CultureInfo.InvariantCulture));
             }
             #endregion
+
+            #region Exercicio condicional 1
+            else if (exercicio == "C1")
+            {
+                Console.Clear();
+                Console.WriteLine("Fazer um programa para ler um número inteiro, e depois dizer se este número é negativo ou não");
+
+                Console.WriteLine("\nDigite o número: ");
+                double num = double.Parse(Console.ReadLine());
+
+                if (num < 0)
+                    Console.WriteLine("NEGATIVO");
+                else
+                    Console.WriteLine("NAO NEGATIVO");
+            }
+            #endregion
+
+            #region Exercicio condicional 2
+            else if (exercicio == "C2")
+            {
+                Console.Clear();
+                Console.WriteLine("Fazer um programa para ler um número inteiro e dizer se este número é par ou ímpar");
+
+                Console.WriteLine("\nDigite um número: " );
+                double numero = double.Parse(Console.ReadLine());
+
+                if (numero % 2 == 0)
+                    Console.WriteLine("PAR");
+                else
+                    Console.WriteLine("IMPAR");
+            }
+            #endregion
+
+            #region Exercicio condicional 3
+            else if (exercicio == "C3")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia 2 valores inteiros(A e B).");
+                Console.WriteLine("Após, o programa deve mostrar uma mensagem 'Sao Multiplos' ou 'Nao sao Multiplos', indicando se os valores lidos são múltiplos entre si.");
+                Console.WriteLine("Atenção: os números devem poder ser digitados em ordem crescente ou decrescente.\n");
+
+                Console.Write("Digite o primeiro número: ");
+                int num1 = int.Parse(Console.ReadLine());
+                Console.Write("Digite o segundo número: ");
+                int num2 = int.Parse(Console.ReadLine());
+
+                if (num1 % num2 == 0 || num2 % num1 == 0)
+                    Console.WriteLine("São Multiplos");
+                
+                else
+                    Console.WriteLine("Não são multiplos");
+
+            }
+            #endregion
+
+            #region Exercicio condicional 4
+            else if (exercicio == "C4")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia a hora inicial e a hora final de um jogo. A seguir calcule a duração do jogo,");
+                Console.WriteLine("sabendo que o mesmo pode começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.");
+
+                Console.WriteLine("\nDigite o horario inicial do jogo: 'hh:mm'");
+                string horar1 = Console.ReadLine();
+
+                string[] horario1 = horar1.Split(":");
+
+                Console.WriteLine("\nDigite o horario final do jogo: 'hh:mm'");
+                string horar2 = Console.ReadLine();
+
+                string[] horario2 = horar2.Split(":");
+
+                int hora1 = int.Parse(horario1[0]);
+                int min1 = 0;
+                if (horario1.Length > 1)
+                   min1 = int.Parse(horario1[1]);
+
+                int hora2 = int.Parse(horario2[0]);
+                int min2 = 0;
+                if (horario2.Length > 1)
+                    min2 = int.Parse(horario2[1]);
+
+                //No exercicio é proposto que o mínimo de tempo entre jogos é de uma hora, porém vou deixar sem tempo mínimo para
+                //futuras consultas
+
+                //Outro metodo que poderia ser feito é o TimeSpan, mas optei por esse, mais complexo, para treinar matematica
+                if (hora1 * 60 + min1 <= hora2 * 60 + min2)
+                {
+                    if (min1 <= min2)
+                        Console.WriteLine("\nO jogo teve uma duração de: " + (hora2 - hora1) + ":" + (min2 - min1).ToString("D2") + ".");
+                    else
+                        Console.WriteLine("\nO jogo teve uma duração de: " + (hora2 - hora1 - 1) + ":" + (min2 + 60 - min1).ToString("D2") + ".");
+                }
+                else
+                {
+                    if (min1 < min2)
+                        Console.WriteLine("\nO jogo teve uma duração de: " + (24 + hora2 - hora1) + ":" + (min2 - min1).ToString("D2") + ".");
+                    else
+                        Console.WriteLine("\nO jogo teve uma duração de: " + (24 + hora2 - hora1 -1) + ":" + (min2 + 60 - min1).ToString("D2") + ".");
+                }
+            }
+            #endregion
+
+            #region Exercicio condicional 5
+            else if (exercicio == "C5")
+            {
+                Console.Clear();
+
+                Produto p1 = new Produto(1, "cachorro-quente", 4);
+                Produto p2 = new Produto(2, "x-salada", 4.5);
+                Produto p3 = new Produto(3, "x-bacon", 5);
+                Produto p4 = new Produto(4, "torrada simples", 2);
+                Produto p5 = new Produto(5, "Refrigerante", 1.5);
+
+                double[,] produtos = new double[,] { { p1.Id, p1.Preco }, { p2.Id, p2.Preco },
+                                                     { p3.Id, p3.Preco }, { p4.Id, p4.Preco }, 
+                                                     { p5.Id, p5.Preco } };
+                string[] nomeProdutos = new string[] { p1.Nome, p2.Nome, p3.Nome, p4.Nome, p5.Nome };
+                double precoTotal = 0;
+
+                Console.WriteLine("Seja bem vindo ao restaurante x!");
+
+
+                int codigoPedido = Produto.Menu(nomeProdutos, produtos);
+                int quantidade = Produto.Quantidade(codigoPedido, nomeProdutos);
+                precoTotal = Produto.PrecoTotal(precoTotal, quantidade, codigoPedido, produtos);
+                char outroPedido = Produto.OutroPedido();
+
+                while (outroPedido == 'S')
+                {
+                    codigoPedido = Produto.Menu(nomeProdutos, produtos);
+                    quantidade = Produto.Quantidade(codigoPedido, nomeProdutos);
+                    precoTotal = Produto.PrecoTotal(precoTotal, quantidade, codigoPedido, produtos);
+                    outroPedido = Produto.OutroPedido();
+                }
+
+                Console.WriteLine("preco total = " + precoTotal);
+            }
+                #endregion
         }
     }
 }

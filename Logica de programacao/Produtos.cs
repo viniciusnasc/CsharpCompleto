@@ -48,7 +48,7 @@ namespace Logica_de_programacao
 
         public static double Calculo(double[,] itens, double quantidade, double item, double valorTotal)
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < itens.Length/2; i++)
             {
                 if (item == itens[i, 0])
                 {

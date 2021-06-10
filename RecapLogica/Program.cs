@@ -23,7 +23,11 @@ namespace RecapLogica
                                "c5 para exercicio condicional 5\n" +
                                "c6 para exercicio condicional 6\n" +
                                "c7 para exercicio condicional 7\n" +
-                               "c8 para exercicio condicional 8\n");
+                               "c8 para exercicio condicional 8\n" +
+                               "w1 para exercicio while 1\n" +
+                               "w2 para exercicio while 2\n" +
+                               "w3 para exercicio while 3\n");
+
             string exercicio = Console.ReadLine().ToUpper();
 
             #region Exercicio de fixação de concatenação
@@ -355,7 +359,180 @@ namespace RecapLogica
 
                 Console.WriteLine("preco total = " + precoTotal);
             }
-                #endregion
+            #endregion
+
+            #region Exercicio condicional 6
+            else if (exercicio == "C6")
+            {
+                Console.WriteLine("Você deve fazer um programa que leia um valor qualquer e apresente uma mensagem dizendo em qual dos seguintes intervalos");
+                Console.WriteLine("([0,25], (25,50], (50,75], (75,100]) este valor se encontra.");
+                Console.WriteLine("Obviamente se o valor não estiver em nenhum destes intervalos, deverá ser impressa a mensagem “Fora de intervalo”");
+
+                Console.WriteLine("Digite um número");
+                double num = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                int i1 = 0;
+                int i2 = 25;
+                int i3 = 50;
+                int i4 = 75;
+                int i5 = 100;
+
+                if (num >= i1 && num <= i2)
+                    Console.WriteLine($"Intervalo [{i1}, {i2}]");
+                
+                else if (num > i2 && num <= i3)
+                    Console.WriteLine($"Intervalo [{i2}, {i3}]");
+
+                else if (num > i3 && num <= i4)
+                    Console.WriteLine($"Intervalo [{i3}, {i4}]");
+
+                else if (num > i4 && num <= i5)
+                    Console.WriteLine($"Intervalo [{i4}, {i5}]");
+
+                else
+                    Console.WriteLine("Fora de intervalo");
+            }
+            #endregion
+
+            #region Exercicio condicional 7
+            else if (exercicio == "C7")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia 2 valores com uma casa decimal (x e y), que devem representar as coordenadas de um ponto em um plano.");
+                Console.WriteLine("A seguir, determine qual o quadrante ao qual pertence o ponto, ou se está sobre um dos eixos cartesianos ou na origem (x = y = 0).");
+                Console.WriteLine("Se o ponto estiver na origem, escreva a mensagem “Origem”.");
+                Console.WriteLine("Se o ponto estiver sobreum dos eixos escreva “Eixo X” ou “Eixo Y”, conforme for a situação.");
+
+                Console.Write("Digite o primeiro numero: ");
+                double num1 = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+
+                Console.Write("Digite o segundo numero: ");
+                double num2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                if (num1 == 0 && num2 == 0)
+                    Console.WriteLine("\nOrigem");
+
+                else if (num1 == 0 && num2 != 0)
+                    Console.WriteLine("\nEixo Y");
+
+                else if (num1 != 0 && num2 == 0)
+                    Console.WriteLine("\nEixo X");
+
+                else if (num1 > 0 && num2 > 0)
+                    Console.WriteLine("\nQ1");
+
+                else if (num1 > 0 && num2 < 0)
+                    Console.WriteLine("\nQ4");
+
+                else if (num1 < 0 && num2 > 0)
+                    Console.WriteLine("\nQ2");
+                
+                else
+                    Console.WriteLine("\nQ3");
+            }
+            #endregion
+
+            #region Exercicio Condicional 8
+            else if (exercicio =="C8")
+            {
+                Console.Clear();
+                Console.WriteLine("Em um país imaginário denominado Lisarb, todos os habitantes ficam felizes em pagar seus impostos,");
+                Console.WriteLine("pois sabem que nele não existem políticos corruptos e os recursos arrecadados são utilizados em benefício da população,");
+                Console.WriteLine("sem qualquer desvio. A moeda deste país é o Rombus, cujo símbolo é o R$.");
+                Console.WriteLine("\nLeia um valor com duas casas decimais, equivalente ao salário de uma pessoa de Lisarb. Em seguida,");
+                Console.WriteLine("calcule e mostre o valor que esta pessoa deve pagar de Imposto de Renda, segundo a tabela abaixo.");
+                Console.WriteLine("\nLembre que, se o salário for R$ 3002.00, a taxa que incide é de 8% apenas sobre R$ 1000.00,");
+                Console.WriteLine("pois a faixa de salário que fica de R$ 0.00 até R$ 2000.00 é isenta de Imposto de Renda.");
+                Console.WriteLine("No exemplo fornecido (abaixo), a taxa é de 8% sobre R$ 1000.00 + 18% sobre R$ 2.00,");
+                Console.WriteLine("o que resulta em R$ 80.36 no total. O valor deveser impresso com duas casas decimais.");
+
+                Console.Write("\nDigite o valor do salário: ");
+                double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                double imposto = 0;
+
+                if (salario <= 2000)
+                    Console.WriteLine("Isento");
+
+                else if (salario <= 3000)
+                {
+                    salario -= 2000;
+                    imposto = salario * 0.08;
+                    Console.WriteLine($"R$ {imposto.ToString("F2")}");
+                }
+
+                else if (salario <= 4500)
+                {
+                    salario -= 3000;
+                    imposto = salario * 0.18 + 1000 * 0.08;
+                    Console.WriteLine($"R$ {imposto.ToString("F2")}");
+                }
+
+                else
+                {
+                    salario -= 4500;
+                    imposto = salario * 0.28 + 1000 * 0.08 + 1500 * 0.18;
+                    Console.WriteLine($"R$ {imposto.ToString("F2")}");
+                }
+            }
+            #endregion
+
+            #region Exercicio while 1
+            else if (exercicio == "W1")
+            {
+                Console.Clear();
+                Console.WriteLine("Escreva um programa que repita a leitura de uma senha até que ela seja válida. Para cada leitura de senha incorreta informada,");
+                Console.WriteLine("escrever a mensagem 'Senha Invalida'. Quando a senha for informada corretamente deve ser impressa a mensagem 'Acesso Permitido' e o algoritmo encerrado.");
+                Console.WriteLine("Considere que a senha correta é o valor 2002.\n");
+
+                Console.Write("Digite a senha: ");
+                int senha = int.Parse(Console.ReadLine());
+                int i = 1;
+
+                    while (senha != 2002)
+                    {
+                        Console.WriteLine("Senha invalida!\n");
+                    i++;
+                        Console.Write($"Digite novamente! (Tentativa de número: {i}): ");
+                        senha = int.Parse(Console.ReadLine());
+                    }
+              
+                    Console.WriteLine("Acesso perimitido!");
+            }
+            #endregion
+
+            #region Exercicio while 2
+            else if (exercicio == "W2")
+            {
+                Console.Clear();
+                Console.WriteLine("Escreva um programa para ler as coordenadas (X,Y) de uma quantidadeindeterminada de pontos no sistema cartesiano.");
+                Console.WriteLine("Para cada ponto escrever o quadrante a que ele pertence.");
+                Console.WriteLine("O algoritmo será encerrado quando pelo menos uma de duas coordenadas for NULA (nesta situação sem escrever mensagem alguma).");
+
+                Console.Write("Digite o valor de x: ");
+                int x = int.Parse(Console.ReadLine());
+
+                Console.Write("Digite o valor de y: ");
+                int y = int.Parse(Console.ReadLine());
+
+                while (x != 0 && y != 0)
+                {
+                    if (x > 0 && y > 0)
+                        Console.WriteLine("PRIMEIRO");
+                    else if (x > 0 && y < 0)
+                        Console.WriteLine("QUARTO");
+                    else if (x < 0 && y > 0)
+                        Console.WriteLine("SEGUNDO");
+                    else
+                        Console.WriteLine("TERCEIRO");
+
+                    Console.Write("\nDigite o valor de x: ");
+                    x = int.Parse(Console.ReadLine());
+
+                    Console.Write("Digite o valor de y: ");
+                    y = int.Parse(Console.ReadLine());
+                }
+            }
+            #endregion
         }
     }
 }

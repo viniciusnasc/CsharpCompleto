@@ -26,7 +26,14 @@ namespace RecapLogica
                                "c8 para exercicio condicional 8\n" +
                                "w1 para exercicio while 1\n" +
                                "w2 para exercicio while 2\n" +
-                               "w3 para exercicio while 3\n");
+                               "w3 para exercicio while 3\n" +
+                               "r1 para exercicio for 1\n" +
+                               "r2 para exercicio for 2\n" +
+                               "r3 para exercicio for 3\n" +
+                               "r4 para exercicio for 4\n" +
+                               "r5 para exercicio for 5\n" +
+                               "r6 para exercicio for 6\n" +
+                               "r7 para exercicio for 7\n");
 
             string exercicio = Console.ReadLine().ToUpper();
 
@@ -531,6 +538,173 @@ namespace RecapLogica
                     Console.Write("Digite o valor de y: ");
                     y = int.Parse(Console.ReadLine());
                 }
+            }
+            #endregion
+
+            #region Exercicio while 3
+            else if (exercicio == "W3")
+            {
+                Console.Clear();
+                Console.WriteLine("Um Posto de combustíveis deseja determinar qual de seus produtos tem a preferência de seus clientes.");
+                Console.WriteLine("Escreva um algoritmo para ler o tipo de combustível abastecido (codificado da seguinte forma:");
+                Console.WriteLine("1.Álcool 2.Gasolina 3.Diesel 4.Fim). Caso o usuário informe um código inválido (fora da faixa de 1 a 4)");
+                Console.WriteLine("deve ser solicitado um novo código (até que seja válido).");
+                Console.WriteLine("O programa será encerrado quando o código informado for o número 4.Deve ser escrito a mensagem:");
+                Console.WriteLine("'MUITO OBRIGADO' e a quantidade de clientes que abasteceram cada tipo de combustível, conforme exemplo.\n");
+
+                //Alcool = 1
+                //Gasolina = 2
+                //Diesel = 3
+
+                int alcool = 0;
+                int gasolina = 0;
+                int diesel = 0;
+
+                Console.Write("Digite o código do combustivel que deseja - 1 para alcool, 2 para gasolina, 3 para diesel, 4 para sair: ");
+                int opcao = int.Parse(Console.ReadLine());
+
+                while (opcao != 4)
+                {
+                    if (opcao == 1)
+                        alcool++;
+                    else if (opcao == 2)
+                        gasolina++;
+                    else if (opcao == 3)
+                        diesel++;
+                    else
+                        Console.WriteLine("Codigo inválido");
+
+                    Console.Write("\nDigite o código do combustivel que deseja - 1 para alcool, 2 para gasolina, 3 para diesel, 4 para sair ");
+                    opcao = int.Parse(Console.ReadLine());
+                }
+
+                Console.WriteLine($"\nMUITO OBRIGADO!\n" +
+                                  $"Alcool = {alcool}\n" +
+                                  $"Gasolina = {gasolina}\n" +
+                                  $"Diesel = {diesel}");
+            }
+            #endregion
+
+            #region Exercicio for 1
+            else if (exercicio == "R1")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia um valor inteiro X (1 <= X <= 1000). Em seguida mostre os ímpares de 1 até X,");
+                Console.WriteLine("um valor por linha, inclusive o X, se for o caso.\n");
+
+                Console.Write("Digite um número entre 1 e 1000! ");
+                int num = int.Parse(Console.ReadLine());
+
+                while (num < 1 || num > 1000)
+                {
+                    Console.Write("Número invalido! Digite um número entre 1 e 1000! ");
+                    num = int.Parse(Console.ReadLine());
+                }
+
+                for (int i = 1; i <= num; i = i + 2)
+                {
+                        Console.WriteLine(i);
+                }
+            }
+            #endregion
+
+            #region Exercicio for 2
+            else if (exercicio == "R2")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia um valor inteiro N. Este valor será a quantidade de valores inteiros X que serão lidos em seguida.");
+                Console.WriteLine("Mostre quantos destes valores X estão dentro do intervalo [10,20] e quantosestão fora do intervalo,");
+                Console.WriteLine("mostrando essas informações conforme exemplo (use a palavra 'in' para dentro do intervalo, e 'out' para fora do intervalo),");
+
+                Console.Write("Quantos numeros voce irá digitar? ");
+                int N = int.Parse(Console.ReadLine());
+                int In = 0;
+                int Out = 0;
+
+                for (int i = 1; i <= N; i++)
+                {
+                    Console.Write($"{i}º número: ");
+                    int num = int.Parse(Console.ReadLine());
+
+                    if (num >= 10 && num <= 20)
+                        In++;
+                    else
+                        Out++;
+                }
+
+                Console.WriteLine($"\n{In} in\n{Out} out");
+            }
+            #endregion
+
+            #region Exercicio for 3
+            else if (exercicio == "R3")
+            {
+                Console.Clear();
+                Console.WriteLine("Leia 1 valor inteiro N, que representa o número de casos de teste que vem a seguir.");
+                Console.WriteLine("Cada caso de teste consiste de 3 valores reais, cada um deles com uma casa decimal.");
+                Console.WriteLine("Apresente a média ponderada para cada um destes conjuntos de 3 valores,");
+                Console.WriteLine("sendo que o primeiro valor tem peso 2, o segundo valor tem peso 3 e o terceiro valor tem peso 5.\n");
+
+                Console.WriteLine("Quantos casos você irá colocar?");
+                int numCasos = int.Parse(Console.ReadLine());
+                double valor1 = 0;
+                double valor2 = 0;
+                double valor3 = 0;
+                double[] media = new double[numCasos];
+
+                for(int i = 1; i <= numCasos; i++)
+                {
+                    Console.WriteLine($"\n{i}º Caso: ");
+                    Console.Write("\nDigite o valor do primeiro teste: ");
+                    valor1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    Console.Write("Digite o valor do segundo teste: ");
+                    valor2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    Console.Write("Digite o valor do terceiro teste: ");
+                    valor3 = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+
+                    media[i - 1] = (valor1 * 2 + valor2 * 3 + valor3 * 5) / 10;
+                }
+
+                Console.WriteLine("\n");
+
+                for (int i = 0; i < media.Length; i++)
+                {
+                    Console.WriteLine($"Média do primeiro caso = {media[i].ToString("F1")}");
+                }
+            }
+            #endregion
+
+            #region Exercicio for 4
+            else if (exercicio == "R4")
+            {
+                Console.Clear();
+                Console.WriteLine("Fazer um programa para ler um número N. Depois leia N pares de números e mostre a divisão do primeiro pelo segundo.");
+                Console.WriteLine("Se o denominador for igual a zero, mostrar a mensagem 'divisao impossivel'.");
+
+                Console.Write("\nQuantas divisões você irá fazer? ");
+                int quant = int.Parse(Console.ReadLine());
+                string[] numeros = new string[quant];
+                
+                for (int i = 1; i <= quant; i++)
+                {
+                    Console.WriteLine("\nCaso " + i + ": \n");
+                    Console.Write("Digite o primeiro número: ");
+                    double num1 = double.Parse(Console.ReadLine());
+                    Console.Write("Digite o segundo número: ");
+                    double num2 = double.Parse(Console.ReadLine());
+
+                    if (num2 == 0)
+                        numeros[i - 1] = "divisão impossivel";
+                    else
+                        numeros[i - 1] = (num1 / num2).ToString("F1");
+                }
+
+                Console.WriteLine("\n");
+
+                for ( int i = 0; i < numeros.Length; i++)
+                Console.WriteLine($"Resultado {i+1} = {numeros[i]}");
             }
             #endregion
         }

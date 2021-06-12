@@ -707,6 +707,65 @@ namespace RecapLogica
                 Console.WriteLine($"Resultado {i+1} = {numeros[i]}");
             }
             #endregion
+
+            #region Exercicio for 5
+            else if ( exercicio == "R5")
+            {
+                Console.Clear();
+                Console.WriteLine("Ler um valor N. Calcular e escrever seu respectivo fatorial.");
+                Console.WriteLine("Fatorial de N = N * (N-1) * (N-2) * (N-3) * ... * 1.Lembrando que, por definição, fatorial de 0 é 1");
+
+                Console.Write("\nDigite um número para ver seu fatorial: ");
+                int N = int.Parse(Console.ReadLine());
+                int fatorial = 1;
+
+                if ( N != 0)
+                for (int i = 1; i <= N; i++)
+                {
+                    fatorial *= i;
+                }
+
+                Console.WriteLine($"Fatorial de {N} = {fatorial}");
+            }
+            #endregion
+
+            #region Exercicio for 6
+            else if (exercicio == "R6")
+            {
+                Console.Clear();
+                Console.WriteLine("Ler um número inteiro N e calcular todos os seus divisores.\n");
+
+                Console.Write("Digite um número para ver seus divisores: ");
+                int num = int.Parse(Console.ReadLine());
+
+                for(int i = 1; i <= num; i++)
+                {
+                    if (num % i == 0)
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+            }
+            #endregion
+
+            #region Exercicio for 7
+            else if (exercicio == "R7")
+            {
+                Console.Clear();
+                Console.WriteLine("Fazer um programa para ler um número inteiro positivo N.");
+                Console.WriteLine("O programa deve então mostrar na tela N linhas, começando de 1 até N. Para cada linha,");
+                Console.WriteLine("mostrar o número da linha, depois o quadrado e o cubo do valor, conforme exemplo.\n");
+
+                Console.Write("Digite um número: ");
+                int N = int.Parse(Console.ReadLine());
+
+                for (int i = 1; i <= N; i++)
+                {
+                    Console.WriteLine($"\nNúmero {i}: ");
+                    Console.WriteLine($"Número: {i}, ao quadrado: {Math.Pow(i, 2)}, ao cubo: {Math.Pow(i, 3)}");
+                }
+            }
+            #endregion
         }
     }
 }

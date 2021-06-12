@@ -13,7 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Classes, atributos, met
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Recapitulacao logica programacao", "3 - Recapitulacao logica programacao", "{4F0BDA78-322D-4F08-AB57-F81F4A356CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecapLogica", "RecapLogica\RecapLogica.csproj", "{9F6690FB-30E8-4665-8D16-F676F34EE23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecapLogica", "RecapLogica\RecapLogica.csproj", "{9F6690FB-30E8-4665-8D16-F676F34EE23A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Construtores, this, sobrecarga, encapsulamento", "5 - Construtores, this, sobrecarga, encapsulamento", "{F8EE2703-92B0-4DCA-9B3F-BCD13429B8A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConstrutoresEncapsulamento", "ConstrutoresEncapsulamento\ConstrutoresEncapsulamento.csproj", "{B4D3B677-71F7-452E-9363-269F5D90F399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacaoBanco", "Banco\AplicacaoBanco.csproj", "{055AD7D0-45D1-4A73-BEC9-1535F4EECE71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,14 @@ Global
 		{9F6690FB-30E8-4665-8D16-F676F34EE23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F6690FB-30E8-4665-8D16-F676F34EE23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F6690FB-30E8-4665-8D16-F676F34EE23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4D3B677-71F7-452E-9363-269F5D90F399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4D3B677-71F7-452E-9363-269F5D90F399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4D3B677-71F7-452E-9363-269F5D90F399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4D3B677-71F7-452E-9363-269F5D90F399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{055AD7D0-45D1-4A73-BEC9-1535F4EECE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055AD7D0-45D1-4A73-BEC9-1535F4EECE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055AD7D0-45D1-4A73-BEC9-1535F4EECE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055AD7D0-45D1-4A73-BEC9-1535F4EECE71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +55,8 @@ Global
 		{D6BB2838-FC85-45CF-8365-5E98CB50DBFF} = {36995CBF-ADFC-4FC2-B00C-16FD8D64F8F8}
 		{74425CF6-3CA0-4533-9EFD-08A9B490047B} = {7828FD2C-9AAB-4A6B-830D-C09786FBF425}
 		{9F6690FB-30E8-4665-8D16-F676F34EE23A} = {4F0BDA78-322D-4F08-AB57-F81F4A356CF6}
+		{B4D3B677-71F7-452E-9363-269F5D90F399} = {F8EE2703-92B0-4DCA-9B3F-BCD13429B8A6}
+		{055AD7D0-45D1-4A73-BEC9-1535F4EECE71} = {F8EE2703-92B0-4DCA-9B3F-BCD13429B8A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA75E6C1-8F64-458A-A982-08CE6B2D6685}

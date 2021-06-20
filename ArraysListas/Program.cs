@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace ArraysListas
 {
@@ -10,7 +11,9 @@ namespace ArraysListas
             Console.WriteLine("Digite o codigo da aula que deseja: " +
                               "\na1 para aula 1" +
                               "\na2 para aula 2" +
-                              "\nf1 para exercicio de fixação - vetores");
+                              "\nf1 para exercicio de fixação - vetores" +
+                              "\na3 para aula 3" +
+                              "\nf2 para exercicio de fixação - listas");
             string aula = Console.ReadLine().ToUpper();
 
             #region Exercicio aula 1
@@ -21,11 +24,11 @@ namespace ArraysListas
                 int N = int.Parse(Console.ReadLine());
 
                 double[] altura = new double[N];
-                    double alturaTotal = 0;
+                double alturaTotal = 0;
 
-                for ( int i = 0; i < N; i++)
+                for (int i = 0; i < N; i++)
                 {
-                    Console.Write($"Digite a {i+1}º altura: ");
+                    Console.Write($"Digite a {i + 1}º altura: ");
                     altura[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     alturaTotal += altura[i];
                 }
@@ -46,18 +49,18 @@ namespace ArraysListas
 
                 for (int i = 0; i < conj.Length; i++)
                 {
-                    
-                    Console.Write($"Digite o nome do {i+1}º produto: ");
+
+                    Console.Write($"Digite o nome do {i + 1}º produto: ");
                     string nome = Console.ReadLine();
                     Console.Write($"Digite o valor do produto: ");
                     double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
                     conj[i] = new Produto(nome, preco);
-                    
+
                     precoMedio += conj[i].Preco;
                 }
 
-                Console.WriteLine($"\nAVERAGE PRICE = {(precoMedio/N)}");
+                Console.WriteLine($"\nAVERAGE PRICE = {(precoMedio / N)}");
             }
             #endregion
 
@@ -79,7 +82,7 @@ namespace ArraysListas
 
                 for (int i = 0; i < totalQuartos; i++)
                 {
-                    Console.WriteLine($"\nINQUILINO #{i+1}: ");
+                    Console.WriteLine($"\nINQUILINO #{i + 1}: ");
                     Console.Write("Nome: ");
                     string nome = Console.ReadLine();
                     Console.Write("E-mail: ");
@@ -102,10 +105,127 @@ namespace ArraysListas
                 for (int i = 0; i < quartos.Length; i++)
                 {
                     if (quartos[i] != null)
-                    Console.WriteLine(quartos[i]);
+                        Console.WriteLine(quartos[i]);
                 }
             }
             #endregion
+
+            #region aula 3 - listas
+            else if (aula == "A3")
+            {
+                List<string> list = new List<string>();
+
+                //adicionar itens na lista
+                list.Add("Maria");
+                list.Add("Alex");
+                list.Add("Bob");
+                list.Add("Anair");
+
+                //adicionar itens na lista, em uma posição determinada
+                list.Insert(2, "Vinicius");
+
+                foreach (string obj in list)
+                    Console.WriteLine(obj);
+
+                //Contar quantidade de itens na lista
+                Console.WriteLine("List count: " + list.Count);
+
+                //Encontrar um item na lista, cujo a primeira letra seja igual a A
+                string s1 = list.Find(x => x[0] == 'A');
+                Console.WriteLine("First A = " + s1);
+
+                //Encontrar o ultimo item da lista, cujo a primeira letra seja igual a A
+                string s2 = list.FindLast(x => x[0] == 'A');
+                Console.WriteLine("Last A= " + s2);
+
+                //Encontrar a posição que o primeiro item com a primeira letra A esta na lista
+                int pos1 = list.FindIndex(x => x[0] == 'A');
+                Console.WriteLine("First position 'A' = " + pos1);
+
+                //Encontrar a posição que o ultimo item com a primeira letra A esta na lista
+                int pos2 = list.FindLastIndex(x => x[0] == 'A');
+                Console.WriteLine("Last position 'A' = " + pos2);
+
+                //Para filtrar algo da lista, precisamos criar outra lista e colocar seus itens nela,
+                //neste exemplo, colocamos todos itens que o tamanho da palavra seja igual a 5
+                List<string> list2 = list.FindAll(x => x.Length == 5);
+                Console.WriteLine("------------------------");
+                foreach (string obj in list2)
+                    Console.WriteLine(obj);
+
+                //Remover item da lista:
+                list.Remove("Alex");
+                Console.WriteLine("-------------------");
+                foreach (string obj in list)
+                    Console.WriteLine(obj);
+
+                //Remover todos itens da lista que comecem com a letra M
+                list.RemoveAll(x => x[0] == 'M');
+                Console.WriteLine("-------------------");
+                foreach (string obj in list)
+                    Console.WriteLine(obj);
+
+                //Remover o item de uma determinada posição
+                list.RemoveAt(0);
+                Console.WriteLine("-------------------");
+                foreach (string obj in list)
+                    Console.WriteLine(obj);
+
+                //Remover, a partir de uma posição /0 no caso/ a quantidade de itens da lista
+                list.RemoveRange(0, 2);
+                Console.WriteLine("-------------------");
+                foreach (string obj in list)
+                    Console.WriteLine(obj);
+            }
+
+            #endregion
+
+            #region exercicio listas
+            else if (aula == "F2")
+            {
+                Console.Clear();
+                List<Funcionarios> funcionarios = new List<Funcionarios>();
+                Console.Write("Quantos funcionarios você irá registrar? ");
+                int N = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < N; i++)
+                {
+                    Console.WriteLine($"Funcionário #{i+1}:");
+                    Console.Write("Id: ");
+                    int id = int.Parse(Console.ReadLine());
+                    Console.Write("Nome: ");
+                    string nome = Console.ReadLine();
+                    Console.Write("Salario: ");
+                    double salario = double.Parse(Console.ReadLine());
+
+                    funcionarios.Add(new Funcionarios(id, nome, salario));
+                }
+
+                Console.Write("\nDigite a Id do funcionário que terá aumento: ");
+                int re = int.Parse(Console.ReadLine());
+
+                Funcionarios fun = funcionarios.Find(x => x.Id == re);
+
+                if (re != null)
+                {
+                    Console.Write("Digite a porcentagem de aumento que terá o funcionário: ");
+                    double porcentagem = double.Parse(Console.ReadLine());
+                    fun.AumentarSalario(porcentagem);
+                }
+                else
+                    Console.WriteLine("ID não localizada!");
+
+                Console.WriteLine("\nLista atualizada de funcionários: ");
+                foreach (Funcionarios obj in funcionarios)
+                    Console.WriteLine(obj);
+
+
+            }
+            #endregion
+
         }
+
     }
+
+    
 }

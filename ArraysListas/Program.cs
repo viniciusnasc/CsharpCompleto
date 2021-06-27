@@ -14,7 +14,8 @@ namespace ArraysListas
                               "\nf1 para exercicio de fixação - vetores" +
                               "\na3 para aula 3" +
                               "\nf2 para exercicio de fixação - listas" +
-                              "\nf3 para exercicio de fixação - matrizes");
+                              "\nf3 para exercicio de fixação - matrizes" +
+                              "\nf4 para exercicio de fixação - matrizes 2");
             string aula = Console.ReadLine().ToUpper();
 
             #region Exercicio aula 1
@@ -300,13 +301,13 @@ namespace ArraysListas
                         if (matriz[i, x] == num)
                         {
                             Console.WriteLine($"Posição {i}, {x}:");
-                            if (matriz[i, x - 1] != null)
+                            if (x - 1 >= 0)
                                 Console.WriteLine($"Left: {matriz[i, x - 1]}");
-                            if (matriz[i, x + 1] != null)
+                            if (x + 1 < M)
                                 Console.WriteLine($"Right: {matriz[i, x + 1]}");
-                            if (matriz[i - 1, x] != null)
+                            if (i - 1 >= 0)
                                 Console.WriteLine($"Up: {matriz[i - 1, x]}");
-                            if (matriz[i + 1, x] != null)
+                            if (i + 1 < N)
                                 Console.WriteLine($"Down: {matriz[i + 1, x]}");
                         }
                     }

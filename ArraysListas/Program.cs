@@ -13,7 +13,8 @@ namespace ArraysListas
                               "\na2 para aula 2" +
                               "\nf1 para exercicio de fixação - vetores" +
                               "\na3 para aula 3" +
-                              "\nf2 para exercicio de fixação - listas");
+                              "\nf2 para exercicio de fixação - listas" +
+                              "\nf3 para exercicio de fixação - matrizes");
             string aula = Console.ReadLine().ToUpper();
 
             #region Exercicio aula 1
@@ -190,7 +191,7 @@ namespace ArraysListas
 
                 for (int i = 0; i < N; i++)
                 {
-                    Console.WriteLine($"Funcionário #{i+1}:");
+                    Console.WriteLine($"Funcionário #{i + 1}:");
                     Console.Write("Id: ");
                     int id = int.Parse(Console.ReadLine());
                     Console.Write("Nome: ");
@@ -223,9 +224,98 @@ namespace ArraysListas
             }
             #endregion
 
+            #region exercicio matrizes
+            else if (aula == "F3")
+            {
+                Console.Clear();
+                Console.WriteLine("Criar uma matriz de ordem N, mostrar os numeros da diagonal e a quantidade de numeros negativos");
+
+                Console.Write("\nDigite a quantidade de numeros em cada linha (ordem N): ");
+                int N = int.Parse(Console.ReadLine());
+
+                int[,] matriz = new int[N, N];
+
+                for (int i = 0; i < N; i++)
+                {
+                    Console.WriteLine($"Digite os numeros da {i + 1}ª ordem (numeros separados por espaco): ");
+                    string[] numer = Console.ReadLine().Split(" ");
+
+                    for (int x = 0; x < N; x++)
+                    {
+                        matriz[i, x] = int.Parse(numer[x]);
+                    }
+                }
+
+                Console.WriteLine("Main diagonal: ");
+                for (int i = 0; i < N; i++)
+                {
+                    Console.Write(matriz[i, i] + " ");
+                }
+
+                int negativos = 0;
+                for (int i = 0; i < N; i++)
+                {
+                    for (int x = 0; x < N; x++)
+                    {
+                        if (matriz[i, x] < 0)
+                            negativos++;
+                    }
+                }
+                Console.Write("\nNegative numbers: " + negativos);
+            }
+            #endregion
+
+            #region exercicio matrizes 2
+            else if (aula == "F4")
+            {
+                Console.Clear();
+                Console.WriteLine("Criar uma matriz de N linhas e M colunas, " +
+                    "ler um numero dessa matriz e dizer os valores acima, abaixo, a esquerda e a direita dele.\n");
+
+                Console.Write("Quantas linhas terão sua matriz? ");
+                int N = int.Parse(Console.ReadLine());
+                Console.Write("Quantas colunas terá sua matriz? ");
+                int M = int.Parse(Console.ReadLine());
+
+                int[,] matriz = new int[N, M];
+
+                for (int i = 0; i < N; i++)
+                {
+                    Console.Write($"Digite os numeros da {i + 1}ª linha - separados apenas por espaço: ");
+                    string[] linha = Console.ReadLine().Split(" ");
+
+                    for (int x = 0; x < M; x++)
+                    {
+                        matriz[i, x] = int.Parse(linha[x]);
+                    }
+                }
+
+                Console.Write("Qual numero você deseja saber a posição e seus vizinhos? ");
+                int num = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < N; i++)
+                {
+                    for (int x = 0; x < M; x++)
+                    {
+                        if (matriz[i, x] == num)
+                        {
+                            Console.WriteLine($"Posição {i}, {x}:");
+                            if (matriz[i, x - 1] != null)
+                                Console.WriteLine($"Left: {matriz[i, x - 1]}");
+                            if (matriz[i, x + 1] != null)
+                                Console.WriteLine($"Right: {matriz[i, x + 1]}");
+                            if (matriz[i - 1, x] != null)
+                                Console.WriteLine($"Up: {matriz[i - 1, x]}");
+                            if (matriz[i + 1, x] != null)
+                                Console.WriteLine($"Down: {matriz[i + 1, x]}");
+                        }
+                    }
+                }
+            }
+            #endregion
         }
 
     }
 
-    
+
 }

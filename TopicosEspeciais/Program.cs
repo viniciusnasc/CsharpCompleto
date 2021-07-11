@@ -12,7 +12,9 @@ namespace TopicosEspeciais
                               "\nA2 para funções para string(sem exercicio, apenas consulta)" +
                               "\nA3 para DateTime(sem exercicio, apenas consulta)" +
                               "\nA4 para TimeSpan(sem exercicio, apenas consulta)" +
-                              "\nA5 para Propriedades e operacoes DateTime(sem exercicio, apenas consulta)");
+                              "\nA5 para Propriedades e operacoes DateTime(sem exercicio, apenas consulta)" +
+                              "\nA6 para Propriedades e operacoes DateSpan(sem exercicio, apenas consulta)" +
+                              "\nA7 para TimeKind e ISO 8601(sem exercicio, apenas consulta)");
             string aula = Console.ReadLine().ToUpper();
 
             #region Expressão condicional ternaria
@@ -163,6 +165,35 @@ namespace TopicosEspeciais
                 TimeSpan subtracao = t5.Subtract(t6);
                 TimeSpan multiplicacao = t5.Multiply(2);
                 TimeSpan divisao = t5.Divide(2);
+
+            }
+            #endregion
+
+            #region TimeKind e ISO 8601
+            else if ( aula == "A7")
+            {
+                // TimeKind pode ser local ou UTC(parametro de Greenwich
+                // Boas práticas -> Armazenar em formato UTC - Instanciar e mostrar em formato local
+
+                DateTime d1 = new DateTime(2001, 8, 15, 13, 5, 58, DateTimeKind.Local);
+                DateTime d2 = new DateTime(2001, 8, 15, 13, 5, 58, DateTimeKind.Utc);
+                DateTime d3 = new DateTime(2001, 8, 15, 13, 5, 58);
+
+                Console.WriteLine(d1); // 15/08/2001 13:05:58
+                Console.WriteLine(d1.ToUniversalTime()); // 15/08/2001 16:05:58
+
+                Console.WriteLine(d2); // 15/08/2001 13:05:58
+                Console.WriteLine(d2.ToLocalTime()); // 15/08/2001 10:05:58
+
+                Console.WriteLine(d3); // 15/08/2001 13:05:58 - como ele não tem um formato, ele irá fazer as duas conversoes
+                Console.WriteLine(d3.ToLocalTime()); // 15/08/2001 10:05:58
+                Console.WriteLine(d3.ToUniversalTime()); // 15/08/2001 16:05:58
+
+                // ISO 8601
+
+                DateTime d4 = DateTime.Parse("2000-08-15 13:05:58");
+                DateTime d5 = DateTime.Parse("2000-08-15T13:05:58Z"); // Esse é o formato UTC, passando ele nesse formato, ele já le no formato local
+
 
             }
             #endregion
